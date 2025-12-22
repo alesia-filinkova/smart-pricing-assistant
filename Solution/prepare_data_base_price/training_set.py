@@ -1,7 +1,7 @@
 import pandas as pd
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = BASE_DIR / "IUM25L_Zad_02_01_v2"
 
 calendar = pd.read_csv(DATA_DIR / "calendar.csv")
@@ -28,20 +28,27 @@ base_price = (
 )
 
 
-location_candidates = [
-    "city",
-    "host_location",
+listing_location_candidates = [
     "neighbourhood_cleansed",
     "neighbourhood",
     "neighborhood",
-    "neighborhood_overview"
+    "neighborhood_overview",
 ]
-location_col = next((c for c in location_candidates if c in listings.columns),
-                    None)
+listing_loc_col = next((c for c in listing_location_candidates if c
+                        in listings.columns), None)
 
-if location_col is None:
-    listings["city"] = "unknown"
-    location_col = "city"
+if listing_loc_col is None:
+    listings["listing_location"] = "unknown"
+else:
+    listings["listing_location"] = (listings[listing_loc_col].astype(str)
+                                    .fillna("unknown"))
+
+
+if "host_location" in listings.columns:
+    listings["host_location"] = (listings["host_location"].astype(str)
+                                 .fillna("unknown"))
+else:
+    listings["host_location"] = "unknown"
 
 
 review_score_cols = [
@@ -51,28 +58,22 @@ review_score_cols = [
     "review_scores_checkin",
     "review_scores_communication",
     "review_scores_location",
-    "review_scores_value"
+    "review_scores_value",
 ]
-existing_review_score_cols = [c for c in review_score_cols if c in
-                              listings.columns]
-
+existing_review_score_cols = [c for c in review_score_cols if c
+                              in listings.columns]
 
 listings["amenities_count"] = (
-    listings["amenities"]
-    .astype(str)
-    .str.count(",")
-    .fillna(0)
-    .astype(int) + 1
+    listings["amenities"].astype(str).str.count(",").fillna(0).astype(int) + 1
 )
-
 
 listings["host_is_superhost"] = (
     listings["host_is_superhost"]
     .astype(str)
+    .str.strip()
     .str.lower()
     .map({"t": 1, "f": 0, "true": 1, "false": 0})
 )
-
 
 base_listing_cols = [
     "id",
@@ -82,10 +83,10 @@ base_listing_cols = [
     "bedrooms",
     "beds",
     "bathrooms",
-    location_col,
+    "listing_location",
+    "host_location",
     "latitude",
     "longitude",
-    "neighbourhood_cleansed",
     "minimum_nights",
     "maximum_nights",
     "host_is_superhost",
@@ -94,30 +95,27 @@ base_listing_cols = [
     "reviews_per_month",
 ]
 
+base_listing_cols = [c for c in base_listing_cols if c in listings.columns]
+
 listing_features = listings[base_listing_cols +
                             existing_review_score_cols].rename(
-    columns={
-        "id": "listing_id",
-        location_col: "city"
-    }
+    columns={"id": "listing_id"}
 )
 
-
 reviews_agg = (
-    reviews
-    .groupby("listing_id")
+    reviews.groupby("listing_id")
     .agg(
         avg_rating=("numerical_review", "mean"),
-        review_count=("numerical_review", "count")
+        review_count=("numerical_review", "count"),
     )
     .reset_index()
 )
 
-# --- Joins ---
+# Joins
 df = base_price.merge(listing_features, on="listing_id", how="left")
 df = df.merge(reviews_agg, on="listing_id", how="left")
 
-# --- Final dataset ---
+# Final dataset
 TARGET = "base_price"
 
 FEATURES = [
@@ -127,8 +125,8 @@ FEATURES = [
     "bedrooms",
     "beds",
     "bathrooms",
-    "city",
-    "neighbourhood_cleansed",
+    "listing_location",
+    "host_location",
     "latitude",
     "longitude",
     "minimum_nights",
@@ -141,11 +139,15 @@ FEATURES = [
     "review_count",
 ] + existing_review_score_cols
 
+
+FEATURES = [c for c in FEATURES if c in df.columns]
+
 train_df = df[["listing_id", TARGET] + FEATURES]
 
 out_path = BASE_DIR / "Processed_data/train_base_price_dataset.csv"
 out_path.parent.mkdir(parents=True, exist_ok=True)
-
 train_df.to_csv(out_path, index=False)
 
 print(f"Saved: {out_path} | rows={len(train_df)} cols={len(train_df.columns)}")
+print(f"Listing location column used: {listing_loc_col}")
+print(f"Added review score cols: {existing_review_score_cols}")

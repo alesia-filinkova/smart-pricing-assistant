@@ -1,13 +1,14 @@
+import numpy as np
 import pandas as pd
 from pathlib import Path
-import numpy as np
 
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_absolute_error
 
 from catboost import CatBoostRegressor
+import joblib
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SPLIT_DIR = BASE_DIR / "Processed_data/splits_base_price"
 
 train_df = pd.read_csv(SPLIT_DIR / "train.csv")
@@ -23,8 +24,8 @@ FEATURES = [
     "bedrooms",
     "beds",
     "bathrooms",
-    "city",
-    "neighbourhood_cleansed",
+    "listing_location",
+    "host_location",
     "latitude",
     "longitude",
     "minimum_nights",
@@ -44,10 +45,12 @@ FEATURES = [
     "review_scores_value",
 ]
 
+
 FEATURES = [c for c in FEATURES if c in train_df.columns]
 
 categorical_features = [
-    c for c in ["room_type", "property_type", "city", "neighbourhood_cleansed"]
+    c for c in ["room_type", "property_type", "listing_location",
+                "host_location"]
     if c in FEATURES
 ]
 num_features = [c for c in FEATURES if c not in categorical_features]
@@ -61,7 +64,7 @@ y_val = val_df[TARGET].astype(float)
 X_test = test_df[FEATURES].copy()
 y_test = test_df[TARGET].astype(float)
 
-# Outlier handling (TRAIN only)
+# Outlier handling
 p1 = y_train.quantile(0.01)
 p99 = y_train.quantile(0.99)
 
@@ -71,6 +74,7 @@ y_train = y_train.loc[mask]
 
 y_val = y_val.clip(p1, p99)
 y_test = y_test.clip(p1, p99)
+
 
 num_imputer = SimpleImputer(strategy="median")
 X_train[num_features] = num_imputer.fit_transform(X_train[num_features])
@@ -84,11 +88,9 @@ for c in categorical_features:
 
 cat_feature_indices = [FEATURES.index(c) for c in categorical_features]
 
-# Log(price) check
 USE_LOG_TARGET = False
 y_train_fit = np.log1p(y_train) if USE_LOG_TARGET else y_train
 y_val_fit = np.log1p(y_val) if USE_LOG_TARGET else y_val
-
 
 model = CatBoostRegressor(
     loss_function="Quantile:alpha=0.5",
@@ -118,7 +120,6 @@ def evaluate(name, X, y_true):
         preds = np.expm1(preds)
 
     preds = np.clip(preds, p1, p99)
-
     mae = mean_absolute_error(y_true, preds)
 
     y_safe = (y_true.replace(0, np.nan) if hasattr(y_true, "replace")
@@ -128,7 +129,26 @@ def evaluate(name, X, y_true):
     print(f"{name} | MAE: {mae:.2f} | MAPE: {mape:.2f}%")
 
 
-print("CATBOOST BASE_PRICE ")
+print("CATBOOST BASE_PRICE (clean location fields)")
 evaluate("TRAIN", X_train, y_train)
 evaluate("VAL", X_val, y_val)
 evaluate("TEST", X_test, y_test)
+
+# Save artifacts for serving
+out_dir = BASE_DIR / "Processed_data/models"
+out_dir.mkdir(parents=True, exist_ok=True)
+
+model.save_model(str(out_dir / "catboost_base_price.cbm"))
+joblib.dump(num_imputer, out_dir / "num_imputer.joblib")
+
+meta = {
+    "features": FEATURES,
+    "categorical_features": categorical_features,
+    "cat_feature_indices": cat_feature_indices,
+    "p1": float(p1),
+    "p99": float(p99),
+    "use_log_target": USE_LOG_TARGET
+}
+joblib.dump(meta, out_dir / "meta.joblib")
+
+print("Saved model + preprocessors to:", out_dir)
