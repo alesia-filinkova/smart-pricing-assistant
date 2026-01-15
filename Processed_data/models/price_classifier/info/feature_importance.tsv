@@ -1,0 +1,187 @@
+feature	importance
+room_type_Entire home/apt	0.6050420674069628
+property_type_Private room in home	0.08753597162787337
+property_type_Private room in hostel	0.047780165500832306
+property_type_Camper/RV	0.04275459619375508
+host_location_Argos, Greece	0.02608239890200591
+property_type_Private room in guest suite	0.02601672145643462
+property_type_Entire condo	0.012987137430689844
+property_type_Private room in serviced apartment	0.012241606921248378
+property_type_Private room in condo	0.009297891192892586
+property_type_Private room in boat	0.00689004931212992
+property_type_Private room in bed and breakfast	0.005969233507990939
+property_type_Entire guest suite	0.005683186625092193
+listing_location_ΖΑΠΠΕΙΟ	0.005315276401463034
+listing_location_ΠΟΛΥΓΩΝΟ	0.0050139569787670205
+property_type_Entire townhouse	0.00496142139958463
+property_type_Entire villa	0.004524978255439009
+property_type_Entire home	0.004314277971029915
+property_type_Private room in guesthouse	0.0041824245421016185
+listing_location_ΛΥΚΑΒΗΤΤΟΣ	0.003905667576297986
+listing_location_ΣΕΠΟΛΙΑ	0.0037123537125192266
+host_location_Arta, Greece	0.0036665217769593196
+host_location_Corfu, Greece	0.0035155928932939034
+listing_location_ΡΙΖΟΥΠΟΛΗ	0.0035027523390155644
+host_location_Bodrum, Turkey	0.003459288482965379
+host_location_Alimos, Greece	0.003388104021662685
+host_location_Drafi, Greece	0.0032469792804042316
+host_location_Rethimno, Greece	0.0031795883344584042
+room_type_Private room	0.003133599859199677
+property_type_Entire loft	0.0031161286500430998
+property_type_Entire rental unit	0.0028850047625033435
+listing_location_ΠΛΑΤΕΙΑ ΑΤΤΙΚΗΣ	0.0028047821119685707
+property_type_Entire serviced apartment	0.00253880193670731
+property_type_Entire guesthouse	0.0022836705095311497
+host_location_Heidelberg, Germany	0.002214585094501952
+host_location_Central Athens Regional Unit, Greece	0.002196187377446192
+longitude	0.0021773301167291293
+host_location_Philadelphia, PA	0.0018868769227250615
+property_type_Private room in rental unit	0.0018172456489282166
+host_location_Moscow, Russia	0.0016480510067140978
+host_location_Hogla, Israel	0.0014173541272605847
+maximum_nights	0.0013457663665807104
+host_location_Kallithea, Greece	0.00129404420154222
+host_location_Piraeus, Greece	0.0011805599039226601
+listing_location_ΓΚΥΖΗ	0.0011029753320340068
+listing_location_ΚΥΨΕΛΗ	0.001078072597321565
+listing_location_ΚΟΛΩΝΑΚΙ	0.0010037332070711902
+listing_location_ΜΟΥΣΕΙΟ-ΕΞΑΡΧΕΙΑ-ΝΕΑΠΟΛΗ	0.0008870268746346944
+listing_location_ΑΝΩ ΚΥΨΕΛΗ	0.0007654442125539475
+listing_location_ΓΟΥΔΙ	0.0007348509061814447
+accommodates	0.0007242230807033961
+listing_location_ΠΑΓΚΡΑΤΙ	0.0007217378407824698
+room_type_Hotel room	0.0006916280303190664
+host_location_Geneva, Switzerland	0.0006745080875484431
+host_location_Monemvasia, Greece	0.0005930887023236282
+host_location_Edinburgh, United Kingdom	0.0005734378578234749
+listing_location_ΠΕΤΡΑΛΩΝΑ	0.0005560693474408633
+host_location_Larnaca, Cyprus	0.000537150502408373
+host_location_Glyfada, Greece	0.0005236064139747824
+host_location_Naxos, Greece	0.0005053439285805398
+host_location_Chicago, IL	0.0004751163470447956
+host_location_Andros, Greece	0.0004684796706826805
+listing_location_ΠΕΔΙΟ ΑΡΕΩΣ	0.00046843222729534863
+listing_location_ΚΟΛΟΚΥΝΘΟΥ	0.0004521711101941344
+host_location_Cholargos, Greece	0.00039874643973934927
+host_location_Heraklion, Greece	0.0003768939702610682
+review_scores_location	0.0003523888992822305
+listing_location_ΝΕΟΣ ΚΟΣΜΟΣ	0.0003288452417493856
+host_location_Ano Liosia, Greece	0.0003226849847292343
+listing_location_ΑΓΙΟΣ ΕΛΕΥΘΕΡΙΟΣ	0.0003179089935858076
+host_location_Diemen, Netherlands	0.0002833925871042784
+host_location_Vouliagmeni, Greece	0.0002778596831862867
+base_price	0.0002330827173205056
+review_scores_value	0.00022944276216106037
+room_type_Shared room	0.00019918588823321224
+listing_location_ΚΟΛΩΝΟΣ	0.0001921980319750625
+listing_location_ΠΑΤΗΣΙΑ	0.0001828447310735843
+listing_location_ΓΟΥΒΑ	0.0001394885748435167
+property_type_Room in hotel	0.00012303249838503387
+listing_location_ΚΟΥΚΑΚΙ-ΜΑΚΡΥΓΙΑΝΝΗ	0.00012180649819532784
+listing_location_ΣΤΑΔΙΟ	8.14948052989492e-05
+bathrooms	7.520052507444261e-05
+host_location_Palaio Faliro, Greece	7.130494052532646e-05
+host_location_Athina, Greece	2.3086285728444477e-05
+host_location_Berne, Switzerland	2.1725846455000197e-05
+host_location_Berlin, Germany	9.017800012357255e-08
+property_type_Room in boutique hotel	0.0
+property_type_Room in serviced apartment	0.0
+listing_location_1Ο ΝΕΚΡΟΤΑΦΕΙΟ	0.0
+property_type_Room in aparthotel	0.0
+listing_location_ΒΟΤΑΝΙΚΟΣ	0.0
+listing_location_ΝΕΑ ΚΥΨΕΛΗ	0.0
+listing_location_ΘΗΣΕΙΟ	0.0
+listing_location_ΙΛΙΣΙΑ	0.0
+listing_location_ΕΛΛΗΝΟΡΩΣΩΝ	0.0
+listing_location_ΕΜΠΟΡΙΚΟ ΤΡΙΓΩΝΟ-ΠΛΑΚΑ	0.0
+listing_location_ΚΕΡΑΜΕΙΚΟΣ	0.0
+property_type_Shared room in hostel	0.0
+property_type_Shared room in condo	0.0
+listing_location_ΑΚΑΔΗΜΙΑ ΠΛΑΤΩΝΟΣ	0.0
+listing_location_ΑΓΙΟΣ ΝΙΚΟΛΑΟΣ	0.0
+listing_location_ΑΓΙΟΣ ΚΩΝΣΤΑΝΤΙΝΟΣ-ΠΛΑΤΕΙΑ ΒΑΘΗΣ	0.0
+listing_location_ΑΚΡΟΠΟΛΗ	0.0
+listing_location_ΑΝΩ ΠΑΤΗΣΙΑ	0.0
+listing_location_ΑΜΠΕΛΟΚΗΠΟΙ	0.0
+listing_location_ΓΚΑΖΙ	0.0
+host_location_Chalandri, Greece	0.0
+host_location_Germany	0.0
+host_location_Chania, Greece	0.0
+host_location_Barcelona, Spain	0.0
+host_location_Belgrade, Serbia	0.0
+host_location_Athens, Greece	0.0
+host_location_Attica, Greece	0.0
+host_location_Agios Dimitrios, Greece	0.0
+host_location_Agia Paraskevi, Greece	0.0
+listing_location_ΠΛΑΤΕΙΑ ΑΜΕΡΙΚΗΣ	0.0
+listing_location_ΣΤΑΘΜΟΣ ΛΑΡΙΣΗΣ	0.0
+listing_location_ΝΙΡΒΑΝΑ	0.0
+host_location_England, United Kingdom	0.0
+host_location_Dublin, Ireland	0.0
+host_location_Dubai, United Arab Emirates	0.0
+host_location_Dionysos, Greece	0.0
+host_location_Didimoticho, Greece	0.0
+host_location_London, United Kingdom	0.0
+host_location_Limassol, Cyprus	0.0
+host_location_Leontario, Greece	0.0
+host_location_Kifisia, Greece	0.0
+host_location_Italya, Egypt	0.0
+host_location_Kapandriti, Greece	0.0
+host_location_Israel	0.0
+host_location_Istanbul, Turkey	0.0
+host_location_Greece	0.0
+host_location_Igoumenitsa, Greece	0.0
+host_location_Ilioupoli, Greece	0.0
+host_location_Euboea, Greece	0.0
+host_location_Galatsi, Greece	0.0
+host_location_Filothei, Greece	0.0
+host_location_Gauteng, South Africa	0.0
+host_location_Melissia, Greece	0.0
+host_location_Papagou, Greece	0.0
+host_location_Paiania, Greece	0.0
+host_location_Oia, Greece	0.0
+host_location_Paris, France	0.0
+host_location_Peristeri, Greece	0.0
+host_location_Pefki, Greece	0.0
+host_location_Pireas, Greece	0.0
+host_location_Patras, Greece	0.0
+host_location_Nea Smyrni, Greece	0.0
+host_location_Ness Ziona, Israel	0.0
+host_location_Nicosia	0.0
+host_location_New York, NY	0.0
+host_location_Nicosia, Cyprus	0.0
+host_location_Marousi, Greece	0.0
+host_location_Mykonos, Greece	0.0
+host_location_Maastricht, Netherlands	0.0
+host_location_Tel Aviv, Israel	0.0
+host_location_Stockholm, Sweden	0.0
+host_location_Sitia, Greece	0.0
+host_location_Singapore	0.0
+host_location_Seoul, South Korea	0.0
+host_location_San Francisco, CA	0.0
+host_location_Psychiko, Greece	0.0
+host_location_Porto Cheli, Greece	0.0
+host_location_Zurich, Switzerland	0.0
+host_location_Zografou, Greece	0.0
+host_location_Zürich, Switzerland	0.0
+host_location_Tel Aviv-Yafo, Israel	0.0
+host_location_Voula, Greece	0.0
+host_location_York, United Kingdom	0.0
+host_location_Toronto, Canada	0.0
+host_location_Thessaloniki, Greece	0.0
+beds	0.0
+bedrooms	0.0
+host_is_superhost_0.0	0.0
+host_is_superhost_1.0	0.0
+host_location_İstanbul, Turkey	0.0
+amenities_count	0.0
+latitude	0.0
+minimum_nights	0.0
+avg_rating	0.0
+reviews_per_month	0.0
+number_of_reviews	0.0
+review_scores_rating	0.0
+review_scores_checkin	0.0
+review_scores_cleanliness	0.0
+review_scores_accuracy	0.0
+review_scores_communication	0.0

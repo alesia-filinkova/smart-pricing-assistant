@@ -1,0 +1,80 @@
+{
+    "model_name": "price_classifier",
+    "best_model_type": "GradientBoosting",
+    "features": {
+        "numeric": [
+            "accommodates",
+            "bedrooms",
+            "beds",
+            "bathrooms",
+            "latitude",
+            "longitude",
+            "minimum_nights",
+            "maximum_nights",
+            "amenities_count",
+            "number_of_reviews",
+            "reviews_per_month",
+            "avg_rating",
+            "review_scores_rating",
+            "review_scores_accuracy",
+            "review_scores_cleanliness",
+            "review_scores_checkin",
+            "review_scores_communication",
+            "review_scores_location",
+            "review_scores_value",
+            "base_price"
+        ],
+        "categorical": [
+            "room_type",
+            "property_type",
+            "listing_location",
+            "host_location",
+            "host_is_superhost"
+        ]
+    },
+    "target_classes": [
+        "low",
+        "normal",
+        "high"
+    ],
+    "target_description": "3-class classification based on group percentiles (25th, 75th)",
+    "training_date": "2026-01-15T21:38:58.621513",
+    "best_val_f1": 0.9122081363701476,
+    "train_percentiles_sample": {
+        "('1\u039f \u039d\u0395\u039a\u03a1\u039f\u03a4\u0391\u03a6\u0395\u0399\u039f', 'Entire home/apt')": [
+            221.66750000000002,
+            456.375
+        ],
+        "('\u0391\u0393\u0399\u039f\u03a3 \u0395\u039b\u0395\u03a5\u0398\u0395\u03a1\u0399\u039f\u03a3', 'Entire home/apt')": [
+            null,
+            null
+        ],
+        "('\u0391\u0393\u0399\u039f\u03a3 \u039a\u03a9\u039d\u03a3\u03a4\u0391\u039d\u03a4\u0399\u039d\u039f\u03a3-\u03a0\u039b\u0391\u03a4\u0395\u0399\u0391 \u0392\u0391\u0398\u0397\u03a3', 'Entire home/apt')": [
+            115.49000000000001,
+            223.53
+        ],
+        "('\u0391\u0393\u0399\u039f\u03a3 \u039a\u03a9\u039d\u03a3\u03a4\u0391\u039d\u03a4\u0399\u039d\u039f\u03a3-\u03a0\u039b\u0391\u03a4\u0395\u0399\u0391 \u0392\u0391\u0398\u0397\u03a3', 'Private room')": [
+            null,
+            null
+        ],
+        "('\u0391\u0393\u0399\u039f\u03a3 \u039a\u03a9\u039d\u03a3\u03a4\u0391\u039d\u03a4\u0399\u039d\u039f\u03a3-\u03a0\u039b\u0391\u03a4\u0395\u0399\u0391 \u0392\u0391\u0398\u0397\u03a3', 'Shared room')": [
+            null,
+            null
+        ]
+    },
+    "model_performance": {
+        "train": {
+            "accuracy": 0.9777015437392796,
+            "f1_macro": 0.9747745113676135
+        },
+        "val": {
+            "accuracy": 0.9246575342465754,
+            "f1_macro": 0.9122081363701476
+        },
+        "test": {
+            "accuracy": 0.9246575342465754,
+            "f1_macro": 0.9163162728563079
+        }
+    },
+    "important_note": "Model includes base_price as a feature. When making predictions, ensure base_price is included in the input features."
+}
