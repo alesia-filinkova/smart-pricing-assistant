@@ -38,7 +38,7 @@
         "high"
     ],
     "target_description": "3-class classification based on group percentiles (25th, 75th)",
-    "training_date": "2026-01-15T21:38:58.621513",
+    "training_date": "2026-01-15T23:30:51.932573",
     "best_val_f1": 0.9122081363701476,
     "train_percentiles_sample": {
         "('1\u039f \u039d\u0395\u039a\u03a1\u039f\u03a4\u0391\u03a6\u0395\u0399\u039f', 'Entire home/apt')": [
