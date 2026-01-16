@@ -185,12 +185,8 @@ best_model_name = max(results, key=lambda x: results[x]['val_f1'])
 best_model = trained_pipelines[best_model_name]
 best_val_f1 = results[best_model_name]['val_f1']
 
-def evaluate_model(model, X):
-    y_pred = model.predict(X)
-    return y_pred
-
-y_train_pred = evaluate_model(best_model, X_train)
-y_val_pred = evaluate_model(best_model, X_val)
+y_train_pred = best_model.predict(X_train)
+y_val_pred = best_model.predict(X_val)
 y_test_pred = best_model.predict(X_test)
 
 
